@@ -1,0 +1,116 @@
+<!-- What is the DOM?
+The Document Object Model (DOM) is a programming interface for web documents.
+It represents the page so programs can manipulate it.
+The DOM allows JavaScript to update content dynamically 
+(JavaScript can modify elements on a webpage after it has been loaded. 
+ADV webpages interactive and responsive to user actions.) 
+(HTML is static meaning the web page remains unchanged after loading). -->
+
+Example 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Example</title>
+  </head>
+  <body>
+    <h1 id="title">Hello World</h1>
+    <script>
+      document.getElementById("title").textContent = "Hello Marines";
+    </script>
+  </body>
+</html>
+
+<!-- How is the DOM Created?
+The browser parses HTML and constructs the DOM tree 
+(The DOM Tree is a representation of an HTML document in something like a hierachy, 
+where elements are structured as nodes in a tree-like format. 
+JavaScript can traverse, modify, and manipulate these nodes to 
+dynamically update webpage content.).
+CSS and JavaScript can modify this tree dynamically.
+The DOM acts as the "source of truth" for what is rendered. -->
+Example 
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>white shirt</p>
+    <script>
+      document.querySelector("p").textContent = "Blue shirt";
+    </script>
+  </body>
+</html>
+
+<!--Accessing the DOM with JavaScript
+The document object represents the entire DOM tree.
+Methods like getElementById(), querySelector(), and getElementsByClassName() allow element selection.
+Example  -->
+const header = document.getElementById("title");   if for example you have 
+<h1 id = "title"> Group 1 discussion</h1> the command finds and accesses the id = "title"
+console.log(header.textContent); this prints out "Group 1 discussion"
+
+<!-- Using Chrome DevTools short cut (ctrl + shift + I)
+The "Elements" tab displays the DOM structure.
+The "Console" tab allows testing JavaScript code. -->
+
+Example
+
+try kutype kwa console
+
+document.body.style.backgroundColor = "lightblue";
+
+<!-- Selecting and Deleting Elements
+Use DevTools to find and delete elements.
+The remove() method removes an element from the DOM.
+Example  -->
+
+document.querySelector("h1").remove();
+
+<!-- The DOM as a Tree
+The DOM represents elements as a tree structure.
+Elements have parent, child, and sibling relationships. -->
+Example
+<body>
+  <div>
+    <h1>Hello!</h1>
+    <p>Paragraph</p>
+  </div>
+</body>
+
+<!-- In the DOM tree representation, each HTML tag is a node:
+
+Root Node  <body>
+Child Node of <body> is <div>
+Children of <div> is <h1> and <p> and we can call them sibling nodes -->
+
+
+<!-- Finding Elements in the DOM
+document.getElementById("id") – Finds element by ID.
+document.getElementsByClassName("class") – Finds elements by class.
+document.getElementsByTagName("tag") – Finds elements by tag.
+Example  -->
+
+const printText = document.getElementsByTagName("p")[0];
+console.log(printText.textContent);
+
+<!-- Query Selector Methods
+querySelector() finds the first matching element.
+querySelectorAll() finds all matching elements.
+Example  -->
+
+const firstListItem = document.querySelector("ul.ranked-list li ul li");
+console.log(firstListItem.textContent);
+
+<!-- Modifying Elements
+Change content with .textContent or .innerHTML.
+Change styles with .style.property.
+Example  -->
+document.querySelector("h1").style.color = "red";
+<!--Conclusion
+
+The DOM allows dynamic manipulation of web pages.
+JavaScript interacts with the DOM to update content.
+DevTools help visualize and debug DOM changes.
+Understanding the DOM tree is key to effective DOM manipulation.
+Example-->
+const newElement = document.createElement("p");
+newElement.textContent = "New paragraph added!";
+document.body.appendChild(newElement);
